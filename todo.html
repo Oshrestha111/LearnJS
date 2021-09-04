@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- todo css -->
+		<link rel="stylesheet" href="/todo.css" />
+
+		<title>To Do List</title>
+	</head>
+	<body>
+		<div class="container">
+			<h2>TO - DO LIST</h2>
+
+			<div class="input-bar">
+				<input
+					id="text-bar"
+					class="text-bar"
+					type="text"
+					placeholder="Write your list here"
+				/>
+				<button class="btn-add" id="btn-add" onclick="addItems()">Add</button>
+			</div>
+
+			<div id="box">
+				<span id="error-msg"></span>
+				<h5>Your Items</h5>
+				<ul id="listed-items"></ul>
+			</div>
+		</div>
+		<script>
+			function addItems() {
+				var inputItems = document.getElementById("text-bar").value;
+				document.getElementById("error-msg").innerHTML = "";
+				if (inputItems == "") {
+					document.getElementById("error-msg").innerHTML =
+						"Oops! you need to type something.";
+				} else {
+					let list = document.getElementById("listed-items");
+					let li = document.createElement("li");
+					li.textContent = inputItems;
+					list.appendChild(li);
+				}
+			}
+		</script>
+	</body>
+</html>
